@@ -1,24 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AmplifyStorage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A6j-KB-t2L">
+                                <rect key="frame" x="290" y="152" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Gr6-uX-sT1"/>
+                                    <constraint firstAttribute="height" constant="240" id="vKE-9d-5DC"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVx-t4-h1U">
+                                <rect key="frame" x="64" y="572.5" width="127" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Open camera"/>
+                                <connections>
+                                    <action selector="openCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iq2-Kw-efP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueV-xK-cbv">
+                                <rect key="frame" x="345.5" y="572.5" width="129.5" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Upload Image"/>
+                                <connections>
+                                    <action selector="uploadImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IwT-Nc-A1S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuB-wH-ypK">
+                                <rect key="frame" x="605" y="572.5" width="151" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Download Image"/>
+                                <connections>
+                                    <action selector="downloadImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Tg-fb-0U9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LU-ht-CKA">
+                                <rect key="frame" x="64" y="863.5" width="168" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="List current photos"/>
+                                <connections>
+                                    <action selector="getListNames:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLU-qc-lR1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0US-Jl-Wq4">
+                                <rect key="frame" x="276" y="616" width="480" height="480"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="480" id="87u-Hw-jOf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="480" id="OFG-AX-y6I"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Current names: ">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLh-UJ-C38">
+                                <rect key="frame" x="64" y="1061" width="101" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Delete file"/>
+                                <connections>
+                                    <action selector="deleteCurrentPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vgT-2N-laL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="A6j-KB-t2L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="128" id="51U-cb-4ax"/>
+                            <constraint firstItem="ueV-xK-cbv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BFs-BL-2Rq"/>
+                            <constraint firstItem="0US-Jl-Wq4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3LU-ht-CKA" secondAttribute="trailing" constant="8" symbolic="YES" id="BJu-wi-ZeH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0US-Jl-Wq4" secondAttribute="trailing" constant="64" id="CP7-TZ-oO8"/>
+                            <constraint firstItem="nuB-wH-ypK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Duc-ST-ccZ"/>
+                            <constraint firstItem="3LU-ht-CKA" firstAttribute="top" secondItem="hVx-t4-h1U" secondAttribute="bottom" constant="256" id="LR9-1i-6Qh"/>
+                            <constraint firstItem="ueV-xK-cbv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hVx-t4-h1U" secondAttribute="trailing" constant="8" symbolic="YES" id="PiM-jk-Nhn"/>
+                            <constraint firstItem="3LU-ht-CKA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="VS6-qw-vP0"/>
+                            <constraint firstItem="mLh-UJ-C38" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="WJo-7h-u6A"/>
+                            <constraint firstItem="nuB-wH-ypK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ueV-xK-cbv" secondAttribute="trailing" constant="8" symbolic="YES" id="dvW-6r-TEd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mLh-UJ-C38" secondAttribute="bottom" constant="64" id="eYE-2M-msT"/>
+                            <constraint firstItem="A6j-KB-t2L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h9h-Wa-4QT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nuB-wH-ypK" secondAttribute="trailing" constant="64" id="kM1-zC-zhx"/>
+                            <constraint firstItem="ueV-xK-cbv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kWC-C0-krc"/>
+                            <constraint firstItem="hVx-t4-h1U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qbI-Lb-ees"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0US-Jl-Wq4" secondAttribute="bottom" constant="64" id="y0c-q4-Dt8"/>
+                            <constraint firstItem="hVx-t4-h1U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="yWw-xv-BdN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="A6j-KB-t2L" id="fqn-Rn-hFz"/>
+                        <outlet property="namesList" destination="0US-Jl-Wq4" id="Jrg-dd-i6C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139.7560975609756" y="4.5762711864406782"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
